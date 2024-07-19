@@ -58,3 +58,7 @@ This project implements an adaptive design based on a Figma prototype. The goal 
 ### CSS
 
 - `styles/main.css`: Contains all the styling for layout, typography, and responsive design.
+
+#### github profile to see current projects
+
+[https://github.com/DeeJay-B]
