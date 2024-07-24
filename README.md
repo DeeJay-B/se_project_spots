@@ -64,7 +64,7 @@ This project implements an adaptive design based on a Figma prototype. The goal 
 
 #### github profile to see current projects
 
-[https://github.com/DeeJay-B]
+[https://github.com/DeeJay-B/se_project_spots]
 
 ##### link to video of project
 
