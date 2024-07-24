@@ -2,9 +2,10 @@
 
 ### Overview
 
-- Intro
-- Figma
-- Images
+- Profile Section: Displays the avatar, name, and description of Bessie Coleman.
+- Includes buttons to edit the profile and add a new post.
+- Cards Section: Displays a list of cards, each containing an image, title, and a like button.
+- Footer: Contains the copyright notice.
 
 **Intro**
 
@@ -32,6 +33,8 @@ This project implements an adaptive design based on a Figma prototype. The goal 
 - HTML5
 - CSS3 (including Flexbox and Grid)
 - Google Fonts (Poppins)
+- Figma
+- VS code
 
 ## Setup
 
@@ -62,3 +65,7 @@ This project implements an adaptive design based on a Figma prototype. The goal 
 #### github profile to see current projects
 
 [https://github.com/DeeJay-B]
+
+##### link to video of project
+
+[https://drive.google.com/file/d/1H_s54mniZ2jMhu4fGuKYq2X1oVJhTciB/view?usp=drive_link]
