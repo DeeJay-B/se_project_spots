@@ -27,6 +27,17 @@
   border-radius: 8px;
 }
 
+.modal__container_type_preview {
+  padding: 0;
+}
+
+.modal__image {
+  width: 100%;
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
 .modal__close-btn {
   position: absolute;
   top: 32px;
@@ -41,6 +52,12 @@
 
 .modal__close-btn:hover {
   opacity: 1;
+}
+
+.modal__close-btn_type_preview {
+  background-image: url(../images/close-icon-preview.svg);
+  top: 0;
+  right: -52.5px;
 }
 
 .modal__title {
