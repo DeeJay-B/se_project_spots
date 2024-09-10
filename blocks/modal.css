@@ -109,6 +109,22 @@
   background-color: rgba(33, 33, 33, 0.8);
 }
 
+.modal__container_type_preview {
+  background: transparent;
+  background-color: (33, 33, 33, 1);
+}
+
+.modal__caption {
+  display: inline-block;
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  background: rgba(33, 33, 33, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;

@@ -48,7 +48,6 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 20;
   background-image: url(../images/delete-icon.svg);
   background-repeat: no-repeat;
   background-position: center;
