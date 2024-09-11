@@ -112,9 +112,9 @@ function handleAddCardSumnit(evt) {
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
+  cardForm.reset();
   closeModal(cardModal);
 }
-cardForm.reset();
 
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
