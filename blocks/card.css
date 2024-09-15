@@ -19,6 +19,9 @@
 }
 
 .card__like-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   background: transparent url(../images/Union.png) center no-repeat;
   width: 23px;
   height: 20px;
@@ -26,6 +29,7 @@
   opacity: 40%;
   opacity: 0.4;
   cursor: pointer;
+  /* z-index: 1; */
 }
 
 .card__like-button:hover {
@@ -72,6 +76,7 @@
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
+  max-width: 353px;
 }
 
 @media screen and (max-width: 627px) {
@@ -85,7 +90,5 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 16px;
-  }
-  .card {
   }
 }
