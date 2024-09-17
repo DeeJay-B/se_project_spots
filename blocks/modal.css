@@ -33,6 +33,7 @@
 .modal__container_type_preview {
   /* padding: 0; */
   margin: 0;
+  background-color: rgba(33, 33, 33, 0.6);
 }
 
 .modal__image-container {
@@ -120,11 +121,6 @@
   background-color: rgba(33, 33, 33, 0.8);
 }
 
-.modal__container_type_preview {
-  background: transparent;
-  background-color: (33, 33, 33, 1);
-}
-
 .modal__caption {
   /* display: inline-block; */
   font-family: Poppins;
@@ -167,5 +163,21 @@
 
   .modal__submit-btn {
     width: 100%;
+  }
+
+  .modal__close-btn_type_preview {
+    top: -51px;
+    right: 0;
+  }
+
+  .modal__image {
+    max-width: 100%;
+  }
+
+  .modal__caption {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.2px;
   }
 }

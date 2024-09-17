@@ -19,7 +19,6 @@
 }
 
 .card__like-button {
-  position: absolute;
   bottom: 10px;
   right: 10px;
   background: transparent url(../images/Union.png) center no-repeat;
@@ -89,6 +88,7 @@
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 500;
-    line-height: 16px;
+    line-height: 1.1;
+    max-width: 250px;
   }
 }
