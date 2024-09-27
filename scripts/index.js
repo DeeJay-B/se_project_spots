@@ -139,7 +139,7 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardElement);
   closeModal(cardModal);
   cardForm.reset();
-  disabledButton(cardSubmitBtn);
+  disableButton(cardSubmitBtn);
 }
 
 profileEditButton.addEventListener("click", () => {
