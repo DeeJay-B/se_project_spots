@@ -30,7 +30,7 @@
   border-radius: 8px;
 }
 
-.modal__container_type_preview {
+.modal_type_preview {
   margin: 0;
   background-color: rgba(33, 33, 33, 0.6);
 }
