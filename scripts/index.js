@@ -117,8 +117,6 @@ function handleEscClose(evt) {
   }
 }
 
-document.addEventListener("keydown", handleEscClose);
-
 function handleOverlayClick(evt) {
   if (evt.target.classList.contains("modal_opened")) {
     closeModal(evt.target);
@@ -151,11 +149,6 @@ profileEditButton.addEventListener("click", () => {
   ]);
   openModal(editModal);
 });
-
-function disableButton(buttonElement, inactiveButtonClass) {
-  buttonElement.classList.add(inactiveButtonClass);
-  buttonElement.disabled = true;
-}
 
 editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
