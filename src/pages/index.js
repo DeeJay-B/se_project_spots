@@ -1,3 +1,5 @@
+import { enableValidation, validationConfig } from "./src/validaton.js";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -137,13 +139,58 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardElement);
   closeModal(cardModal);
   cardForm.reset();
-  disableButton(cardSubmitBtn, settings.inactiveButtonClass);
+  disableButton(cardSubmitBtn, validationConfig.inactiveButtonClass);
+}
+
+function disableButton(button, inactiveButtonClass) {
+  button.classList.add(inactiveButtonClass);
+  button.disabled = true;
+}
+
+function resetValidation(formElement, validationConfig) {
+  const inputList = Array.from(
+    formElement.querySelectorAll(validationConfig.inputSelector)
+  );
+  const buttonElement = formElement.querySelector(
+    validationConfig.submitButtonSelector
+  );
+
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement, validationConfig);
+  });
+
+  toggleButtonState(inputList, buttonElement, validationConfig);
+}
+
+function hideInputError(formElement, inputElement, validationConfig) {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  if (errorElement) {
+    inputElement.classList.remove(validationConfig.inputErrorClass);
+    errorElement.classList.remove(validationConfig.errorClass);
+    errorElement.textContent = "";
+  }
+}
+
+function toggleButtonState(inputList, buttonElement, validationConfig) {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add(validationConfig.inactiveButtonClass);
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.classList.remove(validationConfig.inactiveButtonClass);
+    buttonElement.disabled = false;
+  }
+}
+
+function hasInvalidInput(inputList) {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
 }
 
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-  resetValidation(editFormElement, settings);
+  resetValidation(editFormElement, validationConfig);
 
   openModal(editModal);
 });
@@ -159,7 +206,7 @@ previewModalCloseButton.addEventListener("click", () => {
 cardModalButton.addEventListener("click", () => {
   openModal(cardModal);
   cardForm.reset();
-  disableButton(cardSubmitBtn, settings.inactiveButtonClass);
+  disableButton(cardSubmitBtn, validationConfig.inactiveButtonClass);
 });
 
 cardModalCloseButton.addEventListener("click", () => {
@@ -179,3 +226,5 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.prepend(cardElement);
 });
+
+enableValidation(validationConfig);
