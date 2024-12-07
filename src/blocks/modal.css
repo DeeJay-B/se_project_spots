@@ -75,6 +75,13 @@
   margin-top: 32px;
 }
 
+.modal__submit-btn-delete {
+  background-color: rgba(255, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 .modal__title {
   margin: 0 0 32px;
   font-weight: 500;
