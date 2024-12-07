@@ -1,7 +1,6 @@
 import { enableValidation, validationConfig } from "../scripts/validation.js";
 import "../pages/index.css";
-import Api from "../utils/Api.js"; // Assuming you have an api.js file for the Api class
-import { data } from "autoprefixer";
+import Api from "../utils/Api.js";
 
 // Declare cardTemplate before using it
 const cardTemplate = document.querySelector("#card-template");
