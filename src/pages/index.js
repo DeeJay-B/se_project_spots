@@ -95,11 +95,27 @@ function getCardElement(data) {
   cardImageEl.alt = data.name;
 
   cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtn.classList.toggle("card__like-button_liked");
+    if (cardLikeBtn.classList.contains("card__like-button_liked")) {
+      api
+        .unlikeCard(data._id)
+        .then(() => {
+          cardLikeBtn.classList.remove("card__like-button_liked");
+          localStorage.setItem(`liked_${data._id}`, false);
+        })
+        .catch(console.error);
+    } else {
+      api
+        .likeCard(data._id)
+        .then(() => {
+          cardLikeBtn.classList.add("card__like-button_liked");
+          localStorage.setItem(`liked_${data._id}`, true);
+        })
+        .catch(console.error);
+    }
   });
 
   cardDeleteBtn.addEventListener("click", () => {
-    handleDeleteCard(cardElement, data._id); // Pass the card element and its ID
+    handleDeleteCard(cardElement, data._id);
   });
 
   cardImageEl.addEventListener("click", () => {
