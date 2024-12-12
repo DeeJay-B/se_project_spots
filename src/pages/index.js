@@ -100,7 +100,6 @@ function getCardElement(data) {
         .unlikeCard(data._id)
         .then(() => {
           cardLikeBtn.classList.remove("card__like-button_liked");
-          localStorage.setItem(`liked_${data._id}`, false);
         })
         .catch(console.error);
     } else {
@@ -108,9 +107,11 @@ function getCardElement(data) {
         .likeCard(data._id)
         .then(() => {
           cardLikeBtn.classList.add("card__like-button_liked");
-          localStorage.setItem(`liked_${data._id}`, true);
         })
         .catch(console.error);
+    }
+    if (data.isLiked) {
+      cardLikeBtn.classList.add("card__like-button_liked");
     }
   });
 
