@@ -1,6 +1,11 @@
+
 import { enableValidation, validationConfig } from "../scripts/validation.js";
 import "../pages/index.css";
 import Api from "../utils/Api.js";
+
+import "./index.css";
+import { enableValidation, validationConfig } from "../scripts/validation.js";
+
 
 // Declare cardTemplate before using it
 const cardTemplate = document.querySelector("#card-template");

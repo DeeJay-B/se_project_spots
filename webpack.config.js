@@ -12,10 +12,13 @@ module.exports = {
     filename: "main.js",
     publicPath: "",
   },
-
   mode: "development",
   devtool: "inline-source-map",
-  stats: "errors-only",
+  stats: {
+    children: true,
+    errors: true,
+    errorDetails: true,
+  },
   devServer: {
     static: path.resolve(__dirname, "./dist"),
     compress: true,
