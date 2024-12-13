@@ -1,6 +1,7 @@
 import { enableValidation, validationConfig } from "../scripts/validation.js";
 import "../pages/index.css";
 import Api from "../utils/Api.js";
+import { setButtonText } from "../utils/helpers.js";
 
 // Declare cardTemplate before using it
 const cardTemplate = document.querySelector("#card-template");
@@ -94,6 +95,10 @@ function getCardElement(data) {
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
 
+  if (data.isLiked) {
+    cardLikeBtn.classList.add("card__like-button_liked");
+  }
+
   cardLikeBtn.addEventListener("click", () => {
     if (cardLikeBtn.classList.contains("card__like-button_liked")) {
       api
@@ -109,9 +114,6 @@ function getCardElement(data) {
           cardLikeBtn.classList.add("card__like-button_liked");
         })
         .catch(console.error);
-    }
-    if (data.isLiked) {
-      cardLikeBtn.classList.add("card__like-button_liked");
     }
   });
 
@@ -210,6 +212,9 @@ function handleOverlayClick(evt) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
+
+  const submitButton = evt.submitter;
+  setButtontext(submitButton, true, "Save", "Saving...");
   api
     .editUserInfo({
       name: editModalNameInput.value,
@@ -220,7 +225,10 @@ function handleEditFormSubmit(evt) {
       profileDescription.textContent = data.about;
       closeModal(editModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      submitButton.textContent = "Save";
+    });
 }
 
 function handleAddCardSubmit(evt) {
