@@ -6,33 +6,12 @@
     <meta name="description" content="Coffee Shop Landing Page" />
     <meta name="author" content="Software Engineer" />
     <meta name="keywords" content="HTML, CSS" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <title>Spots</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img
-          src="<%=require('./images/logo.svg')%>"
-          alt="Spots logo"
-          class="header__logo"
-        />
-      </header>
-      <main class="content">
-        <section class="profile page__section">
-          <div class="profile__avatar-container">
-            <button class="profile__avatar-btn">
-              <img
-                src="<%=require('./images/avatar-pencil.png')%>"
-                alt="Pencil icon"
-                class="profile__penicl-icon"
-              />
-            </button>
-            <img
-              src="<%=require('./images/avatar.jpg')%>"
-              alt="Bessie Coleman"
-              class="profile__avatar"
-            />
-          </div>
         <img src="<%=require('./images/logo.svg')%>" alt="Spots logo" class="header__logo" />
       </header>
       <main class="content">
@@ -42,7 +21,6 @@
             alt="Bessie Coleman"
             class="profile__avatar"
           />
-
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
@@ -167,70 +145,6 @@
         ></button>
         <img class="modal__image" src="" alt="" />
         <p class="modal__caption"></p>
-      </div>
-    </div>
-
-    <div class="modal" id="avatar-modal">
-      <div class="modal__container">
-        <button
-          type="button"
-          class="modal__close-btn"
-          aria-label="Close modal"
-        ></button>
-        <h2 class="modal__title">Edit avatar</h2>
-        <form
-          name="edit-profile"
-          class="modal__form"
-          id="edit-avatar-form"
-          novalidate
-        >
-          <label for="profile-avatar-input" class="modal__label">
-            Avatar
-            <input
-              id="profile-avatar-input"
-              name="avatar"
-              class="modal__input"
-              placeholder="avatar goes here"
-              required
-            />
-            <span id="profile-avatar-input-error" class="modal__error"></span>
-          </label>
-          <button type="submit" class="modal__submit-btn">Save</button>
-        </form>
-      </div>
-    </div>
-    <!-- TODO style the modal -->
-    <div class="modal" id="like-modal">
-      <div class="modal__content">
-        <button
-          type="button"
-          class="modal__close-btn"
-          aria-label="Close modal"
-        ></button>
-        <h2 class="modal__title">You liked this image!</h2>
-        <form class="modal__form" id="like-form" novalidate>
-          <button type="submit" class="modal__submit-btn">Close</button>
-        </form>
-      </div>
-    </div>
-    <div class="modal" id="delete-modal">
-      <div class="modal__container">
-        <button
-          type="button"
-          class="modal__close-btn"
-          aria-label="Close modal"
-        ></button>
-        <h2 class="modal__title">
-          Are you sure you want to delete this image?
-        </h2>
-        <form class="modal__form" id="delete-card-form" novalidate>
-          <div>
-            <button type="submit" class="modal__submit-btn-delete">
-              Delete
-            </button>
-            <button type="submit" class="modal__submit-btn">Cancel</button>
-          </div>
-        </form>
       </div>
     </div>
   </body>
