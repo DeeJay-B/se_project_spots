@@ -214,7 +214,7 @@ function handleEditFormSubmit(evt) {
   evt.preventDefault();
 
   const submitButton = evt.submitter;
-  setButtontext(submitButton, true, "Save", "Saving...");
+  setButtonText(submitButton, true, "Save", "Saving...");
   api
     .editUserInfo({
       name: editModalNameInput.value,

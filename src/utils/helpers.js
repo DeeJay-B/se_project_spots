@@ -1,4 +1,4 @@
-export function setButtontext(
+export function setButtonText(
   btn,
   isLoading,
   defaultText = "Save",
