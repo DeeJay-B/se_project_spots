@@ -5,8 +5,8 @@ export function setButtonText(
   loadingText = "Saving..."
 ) {
   if (isLoading) {
-    btn.innerHTML = "Loading...";
+    btn.textContent = "Loading...";
   } else {
-    btn.innerHTML = "Submit";
+    btn.textContent = "Submit";
   }
 }
