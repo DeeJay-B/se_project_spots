@@ -102,7 +102,7 @@ function getCardElement(data) {
   cardLikeBtn.addEventListener("click", () => {
     if (cardLikeBtn.classList.contains("card__like-button_liked")) {
       api
-        .unlikeCard(data._id)
+        .dislikeCard(data._id)
         .then(() => {
           cardLikeBtn.classList.remove("card__like-button_liked");
         })
