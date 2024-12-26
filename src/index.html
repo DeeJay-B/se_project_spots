@@ -214,11 +214,14 @@
           Are you sure you want to delete this image?
         </h2>
         <form class="modal__form" id="delete-card-form" novalidate>
-          <div>
-            <button type="submit" class="modal__submit-btn-delete">
+          <div class="modal__buttons-container">
+            <button
+              type="submit"
+              class="modal__submit-btn delete modal__submit-btn"
+            >
               Delete
             </button>
-            <button type="submit" class="modal__submit-btn">Cancel</button>
+            <button type="button" class="modal__cancel-btn">Cancel</button>
           </div>
         </form>
       </div>

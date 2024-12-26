@@ -65,6 +65,7 @@ const deleteModal = document.querySelector("#delete-modal");
 const deleteModalCloseButton = deleteModal.querySelector(".modal__close-btn");
 const deleteForm = deleteModal.querySelector(".modal__form");
 const deleteModalSubmitBtn = deleteModal.querySelector(".modal__submit-btn");
+const cancelModalButton = deleteModal.querySelector(".modal__cancel-btn");
 
 // Avatar form elements
 const avatarModal = document.querySelector("#avatar-modal");
@@ -177,8 +178,8 @@ function handleDeleteSubmit(evt) {
   api
     .deleteCard(selectedCardID)
     .then(() => {
-      selectedCard.remove(); // Remove the card element from the DOM
-      closeModal(deleteModal); // Close the modal
+      selectedCard.remove();
+      closeModal(deleteModal);
     })
     .catch(console.error);
 }
@@ -356,6 +357,10 @@ avatarForm.addEventListener("submit", (evt) => {
       closeModal(avatarModal);
     })
     .catch(console.error);
+});
+
+cancelModalButton.addEventListener("click", () => {
+  closeModal(deleteModal);
 });
 
 deleteForm.addEventListener("submit", handleDeleteSubmit);
