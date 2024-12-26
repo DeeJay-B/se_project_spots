@@ -41,7 +41,7 @@ const cardModalButton = document.querySelector(".profile__add-button");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const profileAvatar = document.querySelector(".profile__avatar");
-const avatarModalButton = document.querySelector(".profile__avatar-btn");
+const avatarEditButton = document.querySelector(".profile__avatar-btn"); // Declare avatarEditButton only once
 
 // Edit form elements
 const editModal = document.querySelector("#edit-profile-modal");
@@ -51,6 +51,7 @@ const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
   "#profile-description-input"
 );
+const editSubmitBtn = editModal.querySelector(".modal__submit-btn");
 
 // Card form elements
 const cardModal = document.querySelector("#add-card-modal");
@@ -64,7 +65,9 @@ const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 const deleteModal = document.querySelector("#delete-modal");
 const deleteModalCloseButton = deleteModal.querySelector(".modal__close-btn");
 const deleteForm = deleteModal.querySelector(".modal__form");
-const deleteModalSubmitBtn = deleteModal.querySelector(".modal__submit-btn");
+const deleteModalSubmitBtn = deleteModal.querySelector(
+  ".modal__submit-btn-delete"
+);
 const cancelModalButton = deleteModal.querySelector(".modal__cancel-btn");
 
 // Avatar form elements
@@ -96,7 +99,9 @@ function getCardElement(data) {
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
 
-  if (data.isLiked) {
+  // Retrieve like state from local storage
+  const isLiked = localStorage.getItem(`liked_${data._id}`) === "true";
+  if (isLiked) {
     cardLikeBtn.classList.add("card__like-button_liked");
   }
 
@@ -106,20 +111,26 @@ function getCardElement(data) {
         .dislikeCard(data._id)
         .then(() => {
           cardLikeBtn.classList.remove("card__like-button_liked");
+          localStorage.setItem(`liked_${data._id}`, "false");
         })
-        .catch(console.error);
+        .catch((error) => {
+          console.error("Failed to unlike card:", error);
+        });
     } else {
       api
         .likeCard(data._id)
         .then(() => {
           cardLikeBtn.classList.add("card__like-button_liked");
+          localStorage.setItem(`liked_${data._id}`, "true");
         })
-        .catch(console.error);
+        .catch((error) => {
+          console.error("Failed to like card:", error);
+        });
     }
   });
 
   cardDeleteBtn.addEventListener("click", () => {
-    handleDeleteCard(cardElement, data._id);
+    handleDeleteCard(cardElement, data._id); // Pass the card element and its ID
   });
 
   cardImageEl.addEventListener("click", () => {
@@ -145,7 +156,6 @@ editModalCloseBtn.addEventListener("click", () => {
 
 cardModalButton.addEventListener("click", () => {
   openModal(cardModal);
-  cardForm.reset();
   disableButton(cardSubmitBtn, validationConfig.inactiveButtonClass);
 });
 
@@ -153,7 +163,8 @@ cardModalCloseButton.addEventListener("click", () => {
   closeModal(cardModal);
 });
 
-avatarModalButton.addEventListener("click", () => {
+// Open avatar modal
+avatarEditButton.addEventListener("click", () => {
   openModal(avatarModal);
   avatarForm.reset();
   disableButton(avatarSubmitBtn, validationConfig.inactiveButtonClass);
@@ -175,13 +186,19 @@ function handleDeleteCard(cardElement, cardId) {
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
+  setButtonText(deleteModalSubmitBtn, true, "Yes, delete", "Deleting...");
   api
     .deleteCard(selectedCardID)
     .then(() => {
       selectedCard.remove();
       closeModal(deleteModal);
     })
-    .catch(console.error);
+    .catch((error) => {
+      console.error("Failed to delete card:", error);
+    })
+    .finally(() => {
+      setButtonText(deleteModalSubmitBtn, false, "Yes, delete");
+    });
 }
 
 function openModal(modal) {
@@ -191,9 +208,15 @@ function openModal(modal) {
 }
 
 function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", handleEscClose);
-  modal.removeEventListener("mousedown", handleOverlayClick);
+  if (modal && modal.classList) {
+    modal.classList.remove("modal_opened");
+    document.removeEventListener("keydown", handleEscClose);
+    modal.removeEventListener("mousedown", handleOverlayClick);
+  } else {
+    console.error(
+      "Modal element is undefined or does not have classList property"
+    );
+  }
 }
 
 function handleEscClose(evt) {
@@ -213,9 +236,7 @@ function handleOverlayClick(evt) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-
-  const submitButton = evt.submitter;
-  setButtonText(submitButton, true, "Save", "Saving...");
+  setButtonText(editSubmitBtn, true);
   api
     .editUserInfo({
       name: editModalNameInput.value,
@@ -225,34 +246,56 @@ function handleEditFormSubmit(evt) {
       profileName.textContent = data.name;
       profileDescription.textContent = data.about;
       closeModal(editModal);
+      disableButton(
+        editFormElement.querySelector(validationConfig.submitButtonSelector),
+        validationConfig.inactiveButtonClass
+      ); // Disable button after successful submission
     })
-    .catch(console.error)
+    .catch((error) => {
+      console.error("Failed to edit user info:", error);
+    })
     .finally(() => {
-      submitButton.textContent = "Save";
+      setButtonText(editSubmitBtn, false);
     });
 }
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  setButtonText(cardSubmitBtn, true);
   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
-  api.addCard(inputValues).then((data) => {
-    const cardElement = getCardElement(data);
-    cardsList.prepend(cardElement);
-    closeModal(cardModal);
-    cardForm.reset();
-    disableButton(cardSubmitBtn, validationConfig.inactiveButtonClass);
-  });
+  api
+    .addCard(inputValues)
+    .then((data) => {
+      const cardElement = getCardElement(data);
+      cardsList.prepend(cardElement);
+      closeModal(cardModal);
+      cardForm.reset(); // Clear inputs after successful submission
+      disableButton(cardSubmitBtn, validationConfig.inactiveButtonClass); // Disable button after successful submission
+    })
+    .catch((error) => {
+      console.error("Failed to add card:", error);
+    })
+    .finally(() => {
+      setButtonText(cardSubmitBtn, false);
+    });
 }
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
+  setButtonText(avatarSubmitBtn, true);
   api
     .editUserAvatar(avatarInput.value)
     .then((data) => {
       profileAvatar.src = data.avatar;
       closeModal(avatarModal);
+      disableButton(avatarSubmitBtn, validationConfig.inactiveButtonClass); // Disable button after successful submission
     })
-    .catch(console.error);
+    .catch((error) => {
+      console.error("Failed to edit user avatar:", error);
+    })
+    .finally(() => {
+      setButtonText(avatarSubmitBtn, false);
+    });
 }
 
 function disableButton(button, inactiveButtonClass) {
@@ -316,17 +359,8 @@ previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
-const avatarEditButton = document.querySelector(".profile__avatar-btn");
-
-avatarEditButton.addEventListener("click", () => {
-  openModal(avatarModal);
-  avatarForm.reset();
-  disableButton(avatarSubmitBtn, validationConfig.inactiveButtonClass);
-});
-
 cardModalButton.addEventListener("click", () => {
   openModal(cardModal);
-  cardForm.reset();
   disableButton(cardSubmitBtn, validationConfig.inactiveButtonClass);
 });
 
@@ -350,17 +384,20 @@ avatarModalCloseButton.addEventListener("click", () => {
 // Handle avatar form submit
 avatarForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
+  setButtonText(avatarSubmitBtn, true);
   api
     .editUserAvatar(avatarInput.value)
     .then((data) => {
       profileAvatar.src = data.avatar;
       closeModal(avatarModal);
+      disableButton(avatarSubmitBtn, validationConfig.inactiveButtonClass); // Disable button after successful submission
     })
-    .catch(console.error);
-});
-
-cancelModalButton.addEventListener("click", () => {
-  closeModal(deleteModal);
+    .catch((error) => {
+      console.error("Failed to edit user avatar:", error);
+    })
+    .finally(() => {
+      setButtonText(avatarSubmitBtn, false);
+    });
 });
 
 deleteForm.addEventListener("submit", handleDeleteSubmit);

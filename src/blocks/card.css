@@ -38,6 +38,7 @@
 .card__like-button_liked {
   background-image: url(../images/like-icon-liked.svg);
   opacity: 1;
+  cursor: pointer;
 }
 
 .card__like-button_liked:hover {
@@ -63,6 +64,7 @@
 .card__delete-button:hover {
   background-image: url(../images/delete-icon-hover.png);
   opacity: 0.8;
+  cursor: pointer;
 }
 .card__title {
   font-family: "Poppins", Arial, Helvetica, sans-serif;

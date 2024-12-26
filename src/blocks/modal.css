@@ -59,6 +59,7 @@
   border: none;
   background-color: transparent;
   opacity: 40%;
+  cursor: pointer;
 }
 
 .modal__close-btn:hover {
@@ -107,6 +108,7 @@
   border-width: 1px;
   border-style: solid;
   border-color: rgba(252, 245, 229, 1);
+  cursor: pointer;
 }
 
 .modal__submit-btn-delete:hover {
@@ -215,6 +217,7 @@
   .modal__close-btn {
     top: 12px;
     right: 12px;
+    cursor: pointer;
   }
 
   .modal__label {
@@ -223,6 +226,7 @@
 
   .modal__submit-btn {
     width: 100%;
+    cursor: pointer;
   }
 
   .modal__close-btn_type_preview {
