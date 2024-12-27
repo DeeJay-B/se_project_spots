@@ -281,4 +281,27 @@
     font-weight: 500;
     line-height: 19.2px;
   }
+
+  .modal__buttons-container {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .modal__submit-btn-delete {
+    /* width: 100%; */
+    margin-top: 20px;
+    cursor: pointer;
+    gap: 20px;
+    width: 156px;
+    padding: 18px 0;
+    justify-content: center;
+  }
+
+  .modal__cancel-btn {
+    gap: 20px;
+    width: 156px;
+    padding: 18px 0;
+    cursor: pointer;
+  }
 }
