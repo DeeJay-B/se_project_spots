@@ -169,11 +169,6 @@ cardModalCloseButton.addEventListener("click", () => {
 });
 
 // Open avatar modal
-avatarEditButton.addEventListener("click", () => {
-  openModal(avatarModal);
-  avatarForm.reset();
-  disableButton(avatarSubmitBtn, validationConfig.inactiveButtonClass);
-});
 
 avatarModalCloseButton.addEventListener("click", () => {
   closeModal(avatarModal);
@@ -341,17 +336,8 @@ profileEditButton.addEventListener("click", () => {
   openModal(editModal);
 });
 
-editModalCloseBtn.addEventListener("click", () => {
-  closeModal(editModal);
-});
-
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
-});
-
-cardModalButton.addEventListener("click", () => {
-  openModal(cardModal);
-  disableButton(cardSubmitBtn, validationConfig.inactiveButtonClass);
 });
 
 cardModalCloseButton.addEventListener("click", () => {
