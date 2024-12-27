@@ -33,7 +33,7 @@ export const resetValidation = (formEl, config) => {
     hideInputError(formEl, inputElement, config);
   });
 
-  toggleButtonState(inputList, submitButton, config.inactiveButtonClass);
+  // toggleButtonState(inputList, submitButton, config.inactiveButtonClass);
 };
 
 const checkInputValidity = (formEl, inputElement, config) => {
