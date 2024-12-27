@@ -2,6 +2,7 @@ import {
   enableValidation,
   validationConfig,
   resetValidation,
+  disableButton,
 } from "../scripts/validation.js";
 import "../pages/index.css";
 import Api from "../utils/Api.js";
@@ -302,35 +303,35 @@ function handleAvatarSubmit(evt) {
     });
 }
 
-function disableButton(button, inactiveButtonClass) {
-  button.classList.add(inactiveButtonClass);
-  button.disabled = true;
-}
+// function disableButton(button, inactiveButtonClass) {
+//   button.classList.add(inactiveButtonClass);
+//   button.disabled = true;
+// }
 
-function hideInputError(formElement, inputElement, validationConfig) {
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  if (errorElement) {
-    inputElement.classList.remove(validationConfig.inputErrorClass);
-    errorElement.classList.remove(validationConfig.errorClass);
-    errorElement.textContent = "";
-  }
-}
+// function hideInputError(formElement, inputElement, validationConfig) {
+//   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+//   if (errorElement) {
+//     inputElement.classList.remove(validationConfig.inputErrorClass);
+//     errorElement.classList.remove(validationConfig.errorClass);
+//     errorElement.textContent = "";
+//   }
+// }
 
-function toggleButtonState(inputList, buttonElement, validationConfig) {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(validationConfig.inactiveButtonClass);
-    buttonElement.disabled = true;
-  } else {
-    buttonElement.classList.remove(validationConfig.inactiveButtonClass);
-    buttonElement.disabled = false;
-  }
-}
+// function toggleButtonState(inputList, buttonElement, validationConfig) {
+//   if (hasInvalidInput(inputList)) {
+//     buttonElement.classList.add(validationConfig.inactiveButtonClass);
+//     buttonElement.disabled = true;
+//   } else {
+//     buttonElement.classList.remove(validationConfig.inactiveButtonClass);
+//     buttonElement.disabled = false;
+//   }
+// }
 
-function hasInvalidInput(inputList) {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-}
+// function hasInvalidInput(inputList) {
+//   return inputList.some((inputElement) => {
+//     return !inputElement.validity.valid;
+//   });
+// }
 
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;

@@ -7,7 +7,7 @@ export const validationConfig = {
   errorClass: "modal__error_visible",
 };
 
-function disableButton(buttonElement, inactiveButtonClass) {
+export function disableButton(buttonElement, inactiveButtonClass) {
   buttonElement.classList.add(inactiveButtonClass);
   buttonElement.disabled = true;
 }
