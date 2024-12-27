@@ -83,42 +83,6 @@
   margin-top: 20px; /* Adjust the top margin as needed */
 }
 
-.modal__submit-btn-delete {
-  background-color: rgba(255, 0, 0, 0.6); /* Red background color */
-  color: rgba(252, 245, 229, 1); /* Text color */
-  width: 156px;
-  padding: 18px 0;
-  border-radius: 8px;
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  border: none; /* Remove border */
-  cursor: pointer; /* Change cursor to pointer */
-  transition: background-color 0.3s; /* Smooth transition for background color */
-}
-
-.modal__cancel-btn {
-  background-color: #212121;
-  gap: 20px;
-  width: 156px;
-  padding: 18px 0;
-  border-radius: 8px;
-  color: rgba(252, 245, 229, 1);
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(252, 245, 229, 1);
-  cursor: pointer;
-}
-
-.modal__submit-btn-delete:hover {
-  background-color: rgba(255, 0, 0, 1);
-}
-
-.modal__cancel-btn:hover {
-  background-color: rgba(33, 33, 33, 1);
-}
-
 .modal__title {
   margin: 0 0 32px;
   font-weight: 500;
@@ -165,6 +129,42 @@
   margin-top: 8px;
 }
 
+.modal__submit-btn-delete {
+  background-color: rgba(255, 0, 0, 0.6); /* Red background color */
+  color: rgba(252, 245, 229, 1); /* Text color */
+  width: 156px;
+  padding: 18px 0;
+  border-radius: 8px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border: none; /* Remove border */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.modal__cancel-btn {
+  background-color: #212121;
+  gap: 20px;
+  width: 156px;
+  padding: 18px 0;
+  border-radius: 8px;
+  color: rgba(252, 245, 229, 1);
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(252, 245, 229, 1);
+  cursor: pointer;
+}
+
+.modal__submit-btn-delete:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+.modal__cancel-btn:hover {
+  background-color: rgba(33, 33, 33, 1);
+}
+
 .modal__submit-btn {
   width: 156px;
   padding: 18px 0;
@@ -198,6 +198,42 @@
   border-radius: 5px;
   left: 0;
   top: calc(100% + 10px);
+}
+
+.modal__submit-btn-delete {
+  background-color: rgba(255, 0, 0, 0.6); /* Red background color */
+  color: rgba(252, 245, 229, 1); /* Text color */
+  width: 156px;
+  padding: 18px 0;
+  border-radius: 8px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border: none; /* Remove border */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.modal__cancel-btn {
+  background-color: #212121;
+  gap: 20px;
+  width: 156px;
+  padding: 18px 0;
+  border-radius: 8px;
+  color: rgba(252, 245, 229, 1);
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(252, 245, 229, 1);
+  cursor: pointer;
+}
+
+.modal__submit-btn-delete:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+.modal__cancel-btn:hover {
+  background-color: rgba(33, 33, 33, 1);
 }
 
 @media screen and (max-width: 627px) {
