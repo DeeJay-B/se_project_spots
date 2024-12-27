@@ -391,6 +391,10 @@ avatarForm.addEventListener("submit", (evt) => {
 
 deleteForm.addEventListener("submit", handleDeleteSubmit);
 
+cancelModalButton.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
+
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 
 cardForm.addEventListener("submit", handleAddCardSubmit);
