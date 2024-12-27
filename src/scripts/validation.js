@@ -26,7 +26,7 @@ const setEventListeners = (formEl, config) => {
   });
 };
 
-const resetValidation = (formEl, config) => {
+export const resetValidation = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const submitButton = formEl.querySelector(config.submitButtonSelector);
   inputList.forEach((inputElement) => {

@@ -1,4 +1,8 @@
-import { enableValidation, validationConfig } from "../scripts/validation.js";
+import {
+  enableValidation,
+  validationConfig,
+  resetValidation,
+} from "../scripts/validation.js";
 import "../pages/index.css";
 import Api from "../utils/Api.js";
 import { setButtonText } from "../utils/helpers.js";
@@ -146,7 +150,7 @@ function getCardElement(data) {
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-  resetValidation(editFormElement, validationConfig);
+  resetValidation(editFormElement, validationConfig); // Call resetValidation when opening the profile modal
   openModal(editModal);
 });
 
@@ -301,21 +305,6 @@ function handleAvatarSubmit(evt) {
 function disableButton(button, inactiveButtonClass) {
   button.classList.add(inactiveButtonClass);
   button.disabled = true;
-}
-
-function resetValidation(formElement, validationConfig) {
-  const inputList = Array.from(
-    formElement.querySelectorAll(validationConfig.inputSelector)
-  );
-  const buttonElement = formElement.querySelector(
-    validationConfig.submitButtonSelector
-  );
-
-  inputList.forEach((inputElement) => {
-    hideInputError(formElement, inputElement, validationConfig);
-  });
-
-  toggleButtonState(inputList, buttonElement, validationConfig);
 }
 
 function hideInputError(formElement, inputElement, validationConfig) {
