@@ -173,6 +173,7 @@
   color: rgba(252, 245, 229, 1);
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .modal__submit-btn:hover {
