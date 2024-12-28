@@ -332,21 +332,11 @@ previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
 });
 
-cardModalCloseButton.addEventListener("click", () => {
-  closeModal(cardModal);
-});
-
 // Open avatar modal
 avatarEditButton.addEventListener("click", () => {
   openModal(avatarModal);
   avatarForm.reset();
   disableButton(avatarSubmitBtn, validationConfig.inactiveButtonClass);
-});
-avatarForm.addEventListener("submit", handleAvatarSubmit);
-
-// Close avatar modal
-avatarModalCloseButton.addEventListener("click", () => {
-  closeModal(avatarModal);
 });
 
 // Handle avatar form submit
