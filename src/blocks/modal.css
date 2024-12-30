@@ -59,6 +59,7 @@
   border: none;
   background-color: transparent;
   opacity: 40%;
+  cursor: pointer;
 }
 
 .modal__close-btn:hover {
@@ -73,6 +74,13 @@
 
 .modal__form {
   margin-top: 32px;
+}
+
+.modal__buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adjust the gap between buttons as needed */
+  margin-top: 20px; /* Adjust the top margin as needed */
 }
 
 .modal__title {
@@ -121,6 +129,42 @@
   margin-top: 8px;
 }
 
+.modal__submit-btn-delete {
+  background-color: rgba(255, 0, 0, 0.6); /* Red background color */
+  color: rgba(252, 245, 229, 1); /* Text color */
+  width: 156px;
+  padding: 18px 0;
+  border-radius: 8px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border: none; /* Remove border */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.modal__cancel-btn {
+  background-color: #212121;
+  gap: 20px;
+  width: 156px;
+  padding: 18px 0;
+  border-radius: 8px;
+  color: rgba(252, 245, 229, 1);
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(252, 245, 229, 1);
+  cursor: pointer;
+}
+
+.modal__submit-btn-delete:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+.modal__cancel-btn:hover {
+  background-color: rgba(33, 33, 33, 1);
+}
+
 .modal__submit-btn {
   width: 156px;
   padding: 18px 0;
@@ -129,6 +173,7 @@
   color: rgba(252, 245, 229, 1);
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .modal__submit-btn:hover {
@@ -156,6 +201,42 @@
   top: calc(100% + 10px);
 }
 
+.modal__submit-btn-delete {
+  background-color: rgba(255, 0, 0, 0.6); /* Red background color */
+  color: rgba(252, 245, 229, 1); /* Text color */
+  width: 156px;
+  padding: 18px 0;
+  border-radius: 8px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border: none; /* Remove border */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.modal__cancel-btn {
+  background-color: #212121;
+  gap: 20px;
+  width: 156px;
+  padding: 18px 0;
+  border-radius: 8px;
+  color: rgba(252, 245, 229, 1);
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(252, 245, 229, 1);
+  cursor: pointer;
+}
+
+.modal__submit-btn-delete:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+.modal__cancel-btn:hover {
+  background-color: rgba(33, 33, 33, 1);
+}
+
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;
@@ -173,6 +254,7 @@
   .modal__close-btn {
     top: 12px;
     right: 12px;
+    cursor: pointer;
   }
 
   .modal__label {
@@ -181,6 +263,7 @@
 
   .modal__submit-btn {
     width: 100%;
+    cursor: pointer;
   }
 
   .modal__close-btn_type_preview {
@@ -197,5 +280,28 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 19.2px;
+  }
+
+  .modal__buttons-container {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .modal__submit-btn-delete {
+    /* width: 100%; */
+    margin-top: 20px;
+    cursor: pointer;
+    gap: 20px;
+    width: 156px;
+    padding: 18px 0;
+    justify-content: center;
+  }
+
+  .modal__cancel-btn {
+    gap: 20px;
+    width: 156px;
+    padding: 18px 0;
+    cursor: pointer;
   }
 }
